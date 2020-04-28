@@ -3,7 +3,9 @@ If you are familiar with the Raspberry Pi you can use these files to run our Fre
 Once you have your Raspberry Pi up and running you need to make sure VNC and 1-Wire are enabled (Raspberry Pi Configuration--> Interfaces).
 You need also to add the following line to your crontab (for that just open crontab using $ sudo crontab -e)
 $ @reboot sudo python /home/pi/temperaturev5.py
+<new line>
 0 8 * * * sudo python /home/pi/restart.py
+<new line>
 0 20 * * * sudo python /home/pi/restart.py
 You cannot copy into /home/pi/ the three files temperaturev5.py, Temperature-raspiv4.py and restart.py
 To make sure your sensor is working type
