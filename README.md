@@ -4,10 +4,10 @@ Once you have your Raspberry Pi up and running you need to make sure VNC and 1-W
 You need also to add the following line to your crontab (for that just open crontab using $ sudo crontab -e)
 $ @reboot sudo python /home/pi/temperaturev5.py
 "in a new line type"
-0 8 * * * sudo python /home/pi/restart.py
+0 8 * * * sudo python /home/pi/reset.py
 "in a new line type"
-0 20 * * * sudo python /home/pi/restart.py
-You cannot copy into /home/pi/ the three files temperaturev5.py, Temperature-raspiv4.py and restart.py
+0 20 * * * sudo python /home/pi/reset.py
+You cannot copy into /home/pi/ the three files temperaturev5.py, Temperature-raspiv4.py and reset.py
 To make sure your sensor is working type
 $ sudo modprobe w1-therm
 $ cd /sys/bus/w1/devices
