@@ -7,7 +7,8 @@ $ @reboot sudo python /home/pi/temperaturev5.py
 0 8 * * * sudo python /home/pi/reset.py
 "in a new line type"
 0 20 * * * sudo python /home/pi/reset.py
-You cannot copy into /home/pi/ the three files temperaturev5.py, Temperature-raspiv4.py and reset.py
+You can now copy into /home/pi/ the three files temperaturev5.py, Temperature-raspiv4.py and reset.py
+If you are using the multi
 To make sure your sensor is working type
 $ sudo modprobe w1-therm
 $ cd /sys/bus/w1/devices
