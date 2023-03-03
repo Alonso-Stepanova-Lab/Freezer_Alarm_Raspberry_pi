@@ -31,10 +31,25 @@ with open('/home/pi/alarmset.txt','r') as alarmset:
     setT=json.load(alarmset) 
 with open('/home/pi/alarmsetL.txt','r') as alarmsetL:
     setTL=json.load(alarmsetL)
-with open('/home/pi/temperaturelist.txt','r') as tempL:
-    temperaturelist=json.load(tempL)
-with open('/home/pi/timelist.txt','r') as timeL:
-    timelist=json.load(timeL)
+#with open('/home/pi/temperaturelist.txt','r') as tempL:
+#    temperaturelist=json.load(tempL)
+#with open('/home/pi/timelist.txt','r') as timeL:
+#    timelist=json.load(timeL)
+try:
+    with open('/home/pi/temperaturelist.txt','r') as tempL:
+        temperaturelist=json.load(tempL)
+    with open('/home/pi/timelist.txt','r') as timeL:
+        timelist=json.load(timeL)
+except:
+    temperaturelist=[0]*10000
+    timelist=['a']*10000
+    os.remove('/home/pi/temperaturelist.txt')
+    os.remove('/home/pi/timelist.txt')
+    with open('/home/pi/temperaturelist.txt','w') as templist:
+        json.dump(temperaturelist,templist)
+    with open('/home/pi/timelist.txt','w') as tiempolist:
+        json.dump(timelist,tiempolist)
+
 with open ('/home/pi/probenames.txt','r') as probesList:
     probesL=json.load(probesList)
 
@@ -218,4 +233,12 @@ while True:
             json.dump(timelist,tiempolist)
     except:
         time.sleep(1)
+        temperaturelist=[0]*10000
+        timelist=['a']*10000
+        os.remove('/home/pi/temperaturelist.txt')
+        os.remove('/home/pi/timelist.txt')
+        with open('/home/pi/temperaturelist.txt','w') as templist:
+            json.dump(temperaturelist,templist)
+        with open('/home/pi/timelist.txt','w') as tiempolist:
+            json.dump(timelist,tiempolist)   
     time.sleep(300)
